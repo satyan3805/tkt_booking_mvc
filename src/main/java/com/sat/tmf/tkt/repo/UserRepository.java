@@ -1,17 +1,14 @@
 package com.sat.tmf.tkt.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.sat.tmf.tkt.entity.User;
 
 @Repository
-public class UserRepository extends SimpleJpaRepository<User, Integer>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 
-	public void findByPhoneNumber(String username) {
-		
-		
-	}
-	
+	List<User> findByPhoneNumber(String phoneNumber);
 }
