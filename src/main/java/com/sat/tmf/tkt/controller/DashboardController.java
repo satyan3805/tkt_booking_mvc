@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/tktbooking")
 public class DashboardController {
 
-	@GetMapping("dashboard")
+	@GetMapping("/dashboard")
 	public String viewDashboard() {
 		
 		return "dashboard";

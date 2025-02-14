@@ -13,18 +13,18 @@ public class LoginService {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	public User authenticateUser(String username, String password) {
 		List<User> userList = userRepository.findByPhoneNumber(username);
-		
-		if(userList.size()>0) {
+
+		if (userList.size() > 0) {
 			User currUser = userList.get(0);
-			if(currUser.getPassword().equals(password)) {
+			if (currUser.getPassword().equals(password)) {
 				return currUser;
-			}else {
+			} else {
 				return null;
 			}
-		}else {
+		} else {
 			return null;
 		}
 
