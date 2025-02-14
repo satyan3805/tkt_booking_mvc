@@ -1,7 +1,6 @@
 package com.sat.tmf.tkt.entity;
 
-
-import java.time.LocalDate;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,124 +10,119 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "movies")
+@Table(name="movie_details")
 public class Movie {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "movie_id")
+	private int movieId;
+	
+	@Column(name = "title")
+	private String movieTitle;
+	
+	@Column(name = "description")
+	private String description;
+	
+	@Column(name = "release_date")
+	private Date releaseDate;
+	
+	@Column(name = "duration")
+	private int durationInMinutes;
+	
+	@Column(name = "language")
+	private String language;
+	
+	@Column(name = "genre")
+	private String genre;
+	
+	@Column(name = "avg_rating")
+	private double avgRating;
+	
+	@Column(name = "created_date")
+	private Date createdDate;
+	
+	@Column(name = "updated_date")
+	private Date updatedDate;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
+	public int getMovieId() {
+		return movieId;
+	}
 
-    @Column(name = "description", length = 500)
-    private String description;
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
 
-    @Column(name = "release_date")
-    private LocalDate releaseDate;
+	public String getMovieTitle() {
+		return movieTitle;
+	}
 
-    @Column(name = "rating")
-    private Double rating;
+	public void setMovieTitle(String movieTitle) {
+		this.movieTitle = movieTitle;
+	}
 
-    @Column(name = "poster")
-    private String poster;  // Path to the poster image file
+	public String getDescription() {
+		return description;
+	}
 
-    @Column(name = "genre", length = 50)
-    private String genre;
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    @Column(name = "duration")
-    private Integer duration; // Duration of the movie in minutes
+	public Date getReleaseDate() {
+		return releaseDate;
+	}
 
-    // Constructors, Getters, and Setters
-    public Movie() {
-    }
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
+	}
 
-    public Movie(String name, String description, LocalDate releaseDate, Double rating, String poster, String genre, Integer duration) {
-        this.name = name;
-        this.description = description;
-        this.releaseDate = releaseDate;
-        this.rating = rating;
-        this.poster = poster;
-        this.genre = genre;
-        this.duration = duration;
-    }
+	public int getDurationInMinutes() {
+		return durationInMinutes;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public void setDurationInMinutes(int durationInMinutes) {
+		this.durationInMinutes = durationInMinutes;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getLanguage() {
+		return language;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getGenre() {
+		return genre;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public double getAvgRating() {
+		return avgRating;
+	}
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
+	public void setAvgRating(double avgRating) {
+		this.avgRating = avgRating;
+	}
 
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
-    }
+	public Date getCreatedDate() {
+		return createdDate;
+	}
 
-    public Double getRating() {
-        return rating;
-    }
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 
-    public void setRating(Double rating) {
-        this.rating = rating;
-    }
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
 
-    public String getPoster() {
-        return poster;
-    }
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
 
-    public void setPoster(String poster) {
-        this.poster = poster;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", rating=" + rating +
-                ", poster='" + poster + '\'' +
-                ", genre='" + genre + '\'' +
-                ", duration=" + duration +
-                '}';
-    }
 }
-
